@@ -1,0 +1,9 @@
+---
+- name: Get rid of the present sources.list contents
+  shell: 'echo "# All your base are belong to us" > /etc/apt/sources.list'
+
+- name: Add fast deb repos
+  apt_repository: repo='deb http://nl.archive.ubuntu.com/ubuntu trusty main restricted universe multiverse' state=present
+
+- name: Add fast deb-src repos
+  apt_repository: repo='deb-src http://nl.archive.ubuntu.com/ubuntu trusty main restricted universe multiverse' state=present
